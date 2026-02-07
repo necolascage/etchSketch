@@ -1,0 +1,46 @@
+:root {
+  --grid-sze: '----';
+}
+
+#container{
+    padding: 2rem;
+    background-color: beige;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.title{
+    display: flex;
+    flex-direction: row;
+    gap: 32px;
+    margin-bottom: 32px;
+    align-items: center;
+    flex-basis: auto;
+}
+button{
+    height: 44px;
+}
+
+#grid{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    max-width: 640px;
+    aspect-ratio: 1/1 ;
+    flex-grow: 1;
+
+}
+
+.gridSquare{
+    width: calc(100% / var(--grid-size, 16));
+    height: calc(100% / var(--grid-size, 16));
+    transition-duration: 200ms;
+    background-color: white;
+}
+
+.hover{
+    transition-duration: 200ms;
+    background-color: rgb(119, 119, 119);
+}
