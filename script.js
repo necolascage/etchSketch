@@ -34,28 +34,27 @@ createGrid(squareCount);
 
 
 btn.addEventListener("click" , () =>{
-    let newGrid = prompt("Choose a new grid number under 65");
-    if (newGrid >=65) {
-        prompt("Choose a new grid number under 65")
+    let newGrid;
+    while (true){
+        newGrid = prompt("Choose a new grid number under 65");
+        if (newGrid === null){
+            return;
+        }
+        newGrid = parseInt(newGrid);
+        if (isNaN(newGrid) || newGrid <= 0){
+            alert ("Please enter a valid positive number");
+            continue;
+        }
+
+        if (newGrid >= 65){
+            alert ("Please input a number smaller than 65");
+            continue;
+        }
+        break
     }
-    else{
-        let squareCount = newGrid;
-        let gridSize = 100/newGrid;
-        document.documentElement.style.setProperty('--text', `'${gridSize}'`);
-        for (let i = 1; i <= (squareCount * squareCount); i++){
-            const gridSquare = document.createElement("div");
-            gridSquare.classList.add("customGrid");
-            grid.appendChild(gridSquare);
-            gridSquare.addEventListener("mouseenter" ,() => {
-            gridSquare.classList.add("hover");
-            })
-            function removeHover(){
-                gridSquare.classList.remove("hover");
-            }
-            function gridDelay(){
-                setTimeout(removeHover, 400);
-            }
-            gridSquare.addEventListener("mouseleave" , gridDelay);
-    };
-}
+
+    squareCount = newGrid;
+    createGrid(squareCount);
+
+
 })
